@@ -3,10 +3,12 @@ sync
 echo -n "clearing drop caches... "
 echo 3 > /proc/sys/vm/drop_caches
 echo "done"
+
 echo -n "clearing swap... "
 swapoff -a
 swapon -a
 echo "done"
+
 while true; do
 	read -p "clear pacman cache of uninstalled packages? (y/n) " yn
 	case $yn in
@@ -15,6 +17,7 @@ while true; do
 			* ) echo "please enter y or n";;
 	esac
 done
+
 while true; do
 	read -p "clear yay cache of uninstalled packages? (y/n) " yn
 	case $yn in
