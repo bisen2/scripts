@@ -10,19 +10,17 @@ swapon -a
 echo "done"
 
 while true; do
-	read -p "clear pacman cache of uninstalled packages? (y/n) " yn
+	read -p "clear pacman cache of uninstalled packages? [y/N] " yn
 	case $yn in
 			[Yy]* ) echo "removing pacman cache..."; pacman -Sc; echo "done"; break;;
-			[Nn]* ) break;;
-			* ) echo "please enter y or n";;
+			* ) break;;
 	esac
 done
 
 while true; do
-	read -p "clear yay cache of uninstalled packages? (y/n) " yn
+	read -p "clear yay cache of uninstalled packages? [y/N] " yn
 	case $yn in
 			[Yy]* ) echo -n "removing yay cache... "; remove_yay_cache.sh; echo "done"; break;;
-			[Nn]* ) break;;
-			* ) echo "please enter y or n";;
+			* ) break;;
 	esac
 done
