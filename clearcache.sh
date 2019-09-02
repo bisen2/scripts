@@ -20,7 +20,7 @@ done
 while true; do
 	read -p "clear yay cache of uninstalled packages? [y/N] " yn
 	case $yn in
-			[Yy]* ) echo -n "removing yay cache... "; remove_yay_cache.sh; echo "done"; break;;
+			[Yy]* ) echo -n "removing yay cache... "; diff <(pacman -Qmq) <(ls /home/ben/.cache/yay) | sed -e '/^[a-zA-Z0-9]/d' -e 's/>\ //' -e 's/^/\/home\/ben\/.cache\/yay\//' | xargs rm -rf; echo "done"; break;;
 			* ) break;;
 	esac
 done
